@@ -23,15 +23,11 @@
       // Seleziona il tasto "Desafío Delantero" nella barra di navigazione
       const topLink = document.querySelector('.navbar-brand.nav-link');
 
-      // Aggiungi un gestore di eventi al clic del tasto "Desafío Delantero"
       topLink.addEventListener('click', function (event) {
-        // Impedisci il comportamento predefinito del link (il caricamento di una nuova pagina)
         event.preventDefault();
-
-        // Imposta lo scorrimento della finestra fino all'inizio della pagina con effetto "smooth"
         window.scrollTo({
           top: 0,
-          behavior: 'smooth' // Rende lo scorrimento più fluido
+          behavior: 'smooth'
         });
       });
     });
@@ -39,24 +35,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // Seleziona il tasto "Games" nella barra di navigazione
       const gamesLink = document.querySelector('.nav-link[href="#games-section"]');
 
-      // Aggiungi un gestore di eventi al clic del tasto "Games"
       gamesLink.addEventListener('click', function (event) {
-        // Impedisci il comportamento predefinito del link (il caricamento di una nuova pagina)
         event.preventDefault();
 
-        // Seleziona l'elemento a cui desideri far scorrere la pagina
         const gamesSection = document.getElementById('games-section');
-
-        // Calcola l'altezza dell'elemento rispetto al bordo superiore della finestra
         const offsetTop = gamesSection.getBoundingClientRect().top;
 
-        // Imposta lo scorrimento della finestra fino all'altezza della sezione "games-section" con effetto "smooth"
         window.scrollTo({
           top: offsetTop,
-          behavior: 'smooth' // Rende lo scorrimento più fluido
+          behavior: 'smooth'
         });
       });
 
@@ -69,7 +58,7 @@
         $.ajax({
           type: "POST",
           url: "http://localhost:3000/log-in/logout.php",
-          dataType: "json",  // Assicurati che la risposta sia interpretata come JSON
+          dataType: "json", 
           success: function (response) {
             if (response.error) {
               alert(response.error);

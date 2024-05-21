@@ -182,3 +182,20 @@ form h1 {
   letter-spacing: 0.5px;
   margin: 20px 0;
 }
+
+.my-custom-button {
+    background-color: #4CAF50; /* Colore di sfondo del pulsante */
+    color: white; /* Colore del testo */
+    border: none; /* Rimuovi il bordo */
+    padding: 10px 24px; /* Padding del pulsante */
+    text-align: center; /* Allinea il testo al centro */
+    text-decoration: none; /* Rimuovi la sottolineatura del testo */
+    display: inline-block; /* Visualizza come elemento in linea */
+    font-size: 16px; /* Dimensione del font */
+    margin: 4px 2px; /* Margine */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    border-radius: 12px; /* Aggiungi gli angoli arrotondati */
+}
+.my-custom-button:hover {
+    background-color: #45a049; /* Colore di sfondo al passaggio del mouse */
+}

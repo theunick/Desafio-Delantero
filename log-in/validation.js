@@ -1,26 +1,35 @@
 $(document).ready(function () {
-    // Gestore per il form di registrazione
     $('#signupForm').submit(function (event) {
-        event.preventDefault(); // Previene il comportamento predefinito del form (invio e ricarica della pagina)
+        event.preventDefault(); // Previene invio e ricarica della pagina
 
-        // Recupera i valori degli input e li pulisce dagli spazi vuoti
         var uname = $('input[name="uname"]').val().trim();
         var uemail = $('input[name="uemail"]').val().trim();
         var upassword = $('input[name="upassword"]').val();
 
-        // Verifica se i campi sono vuoti
         if (uname === "" || uemail === "" || upassword === "") {
-            console.log("Tutti i campi sono obbligatori.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Errore',
+                text: 'Tutti i campi sono obbligatori.',
+                customClass: {
+                    confirmButton: 'my-custom-button'
+                }
+            });
             return;
         }
 
-        // Verifica se l'email è valida
         if (!validateEmail(uemail)) {
-            console.log("Inserisci un indirizzo email valido.");
+            Swal.fire({
+                icon: 'error',
+                title: 'Errore',
+                text: 'Inserisci un indirizzo email valido.',
+                customClass: {
+                    confirmButton: 'my-custom-button'
+                }
+            });
             return;
         }
 
-        // Crea un oggetto con i dati del form
         var formData = {
             uname: uname,
             uemail: uemail,
@@ -29,21 +38,40 @@ $(document).ready(function () {
 
         // Effettua una richiesta AJAX per inviare i dati al server
         $.ajax({
-            type: "POST", // Metodo HTTP
-            url: "http://localhost:3000/log-in/signup.php", // URL del server a cui inviare la richiesta
-            data: formData, // Dati da inviare
-            dataType: "json",  // Interpreta la risposta come JSON
+            type: "POST",
+            url: "http://localhost:3000/log-in/signup.php",
+            data: formData, 
+            dataType: "json",
             success: function (response) {
-                // Gestisce la risposta del server
                 if (response.error) {
-                    alert(response.error); // Mostra un alert con il messaggio di errore
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Errore',
+                        text: response.error,
+                        customClass: {
+                            confirmButton: 'my-custom-button'
+                        }
+                    });
                 } else {
-                    alert("Registrazione completata con successo!"); // Mostra un alert di successo
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Successo',
+                        text: 'Registrazione completata con successo!',
+                        customClass: {
+                            confirmButton: 'my-custom-button'
+                        }
+                    });
                 }
             },
             error: function (xhr, status, error) {
-                // Gestisce eventuali errori di richiesta
-                alert("Errore tecnico, prova più tardi.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Errore',
+                    text: 'Errore tecnico, prova più tardi.',
+                    customClass: {
+                        confirmButton: 'my-custom-button'
+                    }
+                });
             }
         });
     });
@@ -56,15 +84,13 @@ $(document).ready(function () {
 
     // Gestore per il form di login
     $('#signinForm').on('submit', function (event) {
-        event.preventDefault(); // Previene il comportamento predefinito del form (invio e ricarica della pagina)
+        event.preventDefault();
 
-        // Recupera i valori degli input e li pulisce dagli spazi vuoti
         var uname_login = $('input[name="uname_login"]').val().trim();
         var upassword_login = $('input[name="upassword_login"]').val();
 
         console.log(uname_login);
 
-        // Crea un oggetto con i dati del form
         var formData_2 = {
             name: uname_login,
             password: upassword_login
@@ -72,22 +98,34 @@ $(document).ready(function () {
 
         // Effettua una richiesta AJAX per inviare i dati al server
         $.ajax({
-            type: "POST", // Metodo HTTP
-            url: "http://localhost:3000/log-in/login.php", // URL del server a cui inviare la richiesta
-            data: formData_2, // Dati da inviare
-            dataType: "json",  // Interpreta la risposta come JSON
+            type: "POST",
+            url: "http://localhost:3000/log-in/login.php",
+            data: formData_2,
+            dataType: "json", 
             success: function (response) {
-                // Gestisce la risposta del server
                 if (!response.success) {
-                    alert(response.message); // Mostra un alert con il messaggio di errore
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Errore',
+                        text: response.message,
+                        customClass: {
+                            confirmButton: 'my-custom-button'
+                        }
+                    });
                 } else {
                     sessionStorage.setItem('utente', uname_login); // Memorizza l'utente nella sessione
-                    window.location.href = '../index.html'; // Reindirizza alla pagina principale
+                    window.location.href = '../index.html';
                 }
             },
             error: function (xhr, status, error) {
-                // Gestisce eventuali errori di richiesta
-                alert("Login failed, try again later.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Errore',
+                    text: 'Login failed, try again later.',
+                    customClass: {
+                        confirmButton: 'my-custom-button'
+                    }
+                });
             }
         });
     });
