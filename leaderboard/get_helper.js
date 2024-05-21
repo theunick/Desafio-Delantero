@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // Aggiunge la classe 'activeResult' alla casella dei risultati per renderla visibile
     $('.result_box').addClass("activeResult");
 
     // URL per la richiesta della leaderboard
@@ -8,14 +7,12 @@ $(document).ready(function () {
     // Effettua una richiesta AJAX per ottenere la leaderboard
     $.ajax({
         url: url,
-        type: 'GET', // Metodo HTTP
-        dataType: 'json', // Tipo di dati attesi dal server
+        type: 'GET', 
+        dataType: 'json', 
         success: function (data) {
-            // La risposta dal server è già un oggetto JavaScript
-            generateLeaderboard(data.leaderboard); // Chiama la funzione per generare la leaderboard
+            generateLeaderboard(data.leaderboard);
         },
         error: function (xhr, status, error) {
-            // Gestione degli errori
             console.error("Failed to fetch data:", status, error);
         }
     });
@@ -23,15 +20,13 @@ $(document).ready(function () {
     // Funzione per generare la leaderboard
     function generateLeaderboard(leaderboard) {
         const leaderboardContainer = document.getElementById('cont');
-        leaderboardContainer.innerHTML = ''; // Pulisce il contenitore
+        leaderboardContainer.innerHTML = ''; 
 
-        // Itera attraverso ogni voce della leaderboard
         leaderboard.forEach((entry, index) => {
-            const position = index + 1; // Determina la posizione (indice + 1)
-            const username = entry.uname.toUpperCase(); // Converte il nome utente in maiuscolo
-            const score = entry.score; // Ottiene il punteggio
+            const position = index + 1; 
+            const username = entry.uname.toUpperCase();
+            const score = entry.score;
 
-            // Determina l'icona del rank in base alla posizione
             let rankDisplay;
             if (position === 1) {
                 rankDisplay = '<span style="font-size: 35px;">🥇</span>';
