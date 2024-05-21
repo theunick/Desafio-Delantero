@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Football Hangman </title>
+    <link rel=" shortcut icon " href="../images/logo.png" />
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'
+        rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        /* Definisci l'animazione */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Applica l'animazione alla card */
+        .container {
+            animation: pulse 1s 1;
+            /* Durata dell'animazione: 1.5 secondi, ripeti una volta */
+        }
+    </style>
+</head>
+
+<body
+    style="flex-wrap: wrap; background-image: url('../images/field.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div style="background-color: rgba(83, 75, 75, 0.6); border-radius: 25px;">
+        <div class="game-modal">
+            <div class="content">
+                <h4 style="color: white;">Game Over!</h4>
+                <p style="color: white;">La parola corretta era: <b>rainbow</b></p>
+                <button id="again" class="play-again" style="color: #02a049; border-radius: 25px;">Gioca
+                    ancora!</button>
+                <button class="play-again" style="color: #02a049; border-radius: 25px;"
+                    onclick="window.location.href='../index.html'">Home</button>
+            </div>
+        </div>
+        <div class="container" style="border-radius: 25px;">
+            <div class="hangman-box">
+                <img src="./images" draggable="false" alt="hangman-img">
+                <h1 style="color: white">Football Hangman</h1>
+            </div>
+            <div class="game-box">
+                <ul class="word-display"></ul>
+                <h4 class="hint-text" style="color: white">Suggerimento: <b></b></h4>
+                <h4 class="guesses-text" style="color: white">Errori: <b></b></h4>
+                <div class="keyboard"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>

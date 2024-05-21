@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Desafío Delantero </title>
+  <meta charset=" utf-8 " />
+  <meta name=" viewport " content=" width = device-width , initial-scale=1 " />
+  <link rel=" shortcut icon " href="./images/logo.png" />
+  <link rel=" stylesheet " href=" ./bootstrap/css/index_styles.css " />
+  <link rel=" stylesheet " href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css ">
+  <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap'
+    rel="stylesheet" />
+  <script src=" ./bootstrap/js/bootstrap.min.js "> </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Seleziona il tasto "Desafío Delantero" nella barra di navigazione
+      const topLink = document.querySelector('.navbar-brand.nav-link');
+
+      // Aggiungi un gestore di eventi al clic del tasto "Desafío Delantero"
+      topLink.addEventListener('click', function (event) {
+        // Impedisci il comportamento predefinito del link (il caricamento di una nuova pagina)
+        event.preventDefault();
+
+        // Imposta lo scorrimento della finestra fino all'inizio della pagina con effetto "smooth"
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Rende lo scorrimento più fluido
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Seleziona il tasto "Games" nella barra di navigazione
+      const gamesLink = document.querySelector('.nav-link[href="#games-section"]');
+
+      // Aggiungi un gestore di eventi al clic del tasto "Games"
+      gamesLink.addEventListener('click', function (event) {
+        // Impedisci il comportamento predefinito del link (il caricamento di una nuova pagina)
+        event.preventDefault();
+
+        // Seleziona l'elemento a cui desideri far scorrere la pagina
+        const gamesSection = document.getElementById('games-section');
+
+        // Calcola l'altezza dell'elemento rispetto al bordo superiore della finestra
+        const offsetTop = gamesSection.getBoundingClientRect().top;
+
+        // Imposta lo scorrimento della finestra fino all'altezza della sezione "games-section" con effetto "smooth"
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth' // Rende lo scorrimento più fluido
+        });
+      });
+
+      // Gestione del logout
+      const logoutLink = document.querySelector('.nav-link[href="#logout"]');
+
+      logoutLink.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:3000/log-in/logout.php",
+          dataType: "json",  // Assicurati che la risposta sia interpretata come JSON
+          success: function (response) {
+            if (response.error) {
+              alert(response.error);
+            } else {
+              sessionStorage.removeItem('utente');
+              window.location.href = './index.html';;
+            }
+          },
+          error: function (xhr, status, error) {
+            alert("Already logged out.");
+          }
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body
+  style="flex-wrap: wrap; background-image: linear-gradient(rgba(83, 75, 75, 0.6), rgba(83, 75, 75, 0.6)), url('./images/bg_image.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark glass-navbar"
+      style="background-color: rgba(0, 0, 0, 0); z-index: 2000; position: fixed; top: 0; width: 100%;">
+      <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand nav-link" target="_blank" href="#!">
+          <div id="navbar-title" class="navbar-brand" style="font-family: Blippo, fantasy;">Desafío Delantero</div>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample01"
+          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarExample01">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" aria-current="page" href="#games-section">Games</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./leaderboard/leaderboard.html" rel="nofollow" target="_self">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./log-in/index.html" target="_blank">Log In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#logout" target="_self">Log Out</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav d-flex flex-row">
+            <!-- Icons -->
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="#!" rel="nofollow" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link"
+                href="https://www.instagram.com/desafiodelantero?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                rel="nofollow" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="https://youtube.com/@desafiodelantero?si=aGYw6Vo6ch5UzNCd" rel="nofollow"
+                target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link" href="#!" rel="nofollow" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Title and description -->
+    <div id="intro">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="container d-flex align-items-center justify-content-center text-center h-100">
+          <div class="text-white" data-mdb-theme="dark">
+            <h1 id="title" style="color: white; font-size: 700%; font-family:Blippo, fantasy">Desafío Delantero</h1>
+            <h5 id="bio" class="mb-4">La piattaforma pensata per le vere teste di calcio</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Title and description -->
+  </header>
+
+  <main class="main_3col" style="background-color: transparent; height: 100%">
+    <!--Section: Content-->
+    <section id='games-section' class="text-center"
+      style="background-color:transparent; height:100%; background-size: cover;background-attachment: fixed;">
+      <div class="row align-items-start" style="place-items: center; margin-top: 0;">
+        <style>
+          .glass {
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          }
+        </style>
+
+        <!-- Card 1 -->
+        <div class="section_card">
+          <div class="card glass" style="width: 25rem;">
+            <div class="bg-image hover-overlay shadow-2-strong" style="position: relative; border-radius: 25px">
+              <img src="./images/serie_a_e.jpg" class="img-fluid"
+                style="border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.2);" />
+              <a href="#!">
+                <div class="mask"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;  background-color: rgba(251, 251, 251, 0.35);">
+                </div>
+              </a>
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title" style="margin: 5px 0; font-size: 2rem; font-weight: 600; color: white;">
+                Quiz Facile</h5>
+              <p class="card-text" style="margin: 5px 0; font-size: 1.15rem; color: white;">Mettiti alla prova con
+                domande sulla SerieA</p>
+              <a href="./quiz_easy/quiz_menu.html" class="btn btn-primary" data-difficulty="easy"
+                style="background-color: rgba(255, 255, 255, 0.9); color: rgba(4, 115, 255, 0.90); font-size: 20px; border-radius: 25px; font-weight: 800;"
+                data-mdb-ripple-init> Play</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="section_card">
+          <div class="card glass" style="width: 25rem;">
+            <div class="bg-image hover-overlay shadow-2-strong" style="position: relative; border-radius: 25px;">
+              <img src="./images/serie_a_m.jpg" class="img-fluid"
+                style="border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.2);" />
+              <a href="#!">
+                <div class="mask"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(251, 251, 251, 0.35);">
+                </div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="margin: 5px 0; font-size: 2rem; font-weight: 600; color: white">
+                Quiz Medio</h5>
+              <p class="card-text" style="margin: 5px 0; font-size: 1.15rem; color: white;">Mettiti alla prova con
+                domande sulla SerieA</p>
+              <a data-difficulty="norm" href="./quiz_easy/quiz_menu.html" class="btn btn-primary"
+                style="background-color: rgba(255, 255, 255, 0.9); color: rgba(172, 77, 203, 0.90); font-size: 20px; border-radius: 25px; font-weight: 800;"
+                data-mdb-ripple-init> Play</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="section_card">
+          <div class="card glass" style="width: 25rem;">
+            <div class="bg-image hover-overlay shadow-2-strong" style="position: relative; border-radius: 25px;">
+              <img src="./images/serie_a_d.jpg" class="img-fluid"
+                style="border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.2);" />
+              <a href="#!">
+                <div class="mask"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(251, 251, 251, 0.35);">
+                </div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title" style="margin: 5px 0; font-size: 2rem; font-weight: 600; color: white;">
+                Quiz Difficile</h5>
+              <p class="card-text" style="margin: 5px 0; font-size: 1.15rem; color: white;">Mettiti alla prova con
+                domande sulla SerieA</p>
+              <a data-difficulty="hard" href="./quiz_easy/quiz_menu.html" class="btn btn__css"
+                style="background-color: rgba(255, 255, 255, 0.9); color: rgba(221, 59, 86, 0.90); font-size: 20px; border-radius: 25px; font-weight: 800;"
+                data-mdb-ripple-init> Play</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="section_hangcard">
+        <div class="card glass" style="width: 50rem;">
+          <div class="row g-0">
+            <!-- Colonna per l'immagine -->
+            <div class="col-md-4 d-flex align-items-center">
+              <div class="bg-image hover-overlay shadow-2-strong" style="position: relative; border-radius: 25px;">
+                <img src="./images/hangman1.jpg" class="img-fluid"
+                  style="border-radius: 25px; border: 1px solid rgba(255, 255, 255, 0.2);" />
+                <div class="mask"
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(251, 251, 251, 0.2);">
+                </div>
+                </a>
+              </div>
+            </div>
+            <!-- Colonna per il testo e il pulsante -->
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="card-body">
+                <h5 class="card-title" style="margin: 5px 0; font-size: 2rem; font-weight: 600; color: white;">
+                  Football Hangman</h5>
+                <p class="card-text" style="margin: 5px 0; font-size: 1.15rem; color: white;">Indovina la parola
+                  mancante</p>
+                <a href="./hangman/index.html" class="btn btn-primary"
+                  style="background-color: rgba(255, 255, 255, 0.8); color: #02a049; font-size: 20px; border-radius: 25px; font-weight: 800;"
+                  data-mdb-ripple-init> Play</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./quiz_easy/difficulty.js"></script>
+  <script src="anim_card.js"></script>
+  </div>
+  <footer class="index_footer">
+    <div style="color: white; text-align: center; margin-top: auto;">© 2024 Copyright - Tutti i diritti riservati</div>
+  </footer>
+
+</body>
+
+</html>
