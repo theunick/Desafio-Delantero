@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel=" shortcut icon " href="../images/logo.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel=" stylesheet " href=" ../bootstrap/css/bootstrap.css " />
+
+    <style>
+        /* Definisci l'animazione */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Applica l'animazione alla card */
+        .card {
+            animation: pulse 1s 1;
+            /* Durata dell'animazione: 1.5 secondi, ripeti una volta */
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body
+    style="flex-wrap: wrap; background-image: url('../images/field.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="container vh-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-md-6 col-lg-4">
+                <!-- Card di Bootstrap -->
+                <div class="card text-center">
+                    <div class="card-header" style="font-size: 20px;
+                            font-weight: 600;
+                            height: 70px;
+                            padding: 0 30px;
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);">
+                        Scegli la modalità di gioco
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text" style="margin: 5px 0; font-size: 17px; color: white;">Testa le tue
+                            conoscenze da solo oppure affronta un tuo amico.</p>
+                        <a href="./single.html" class="btn btn-primary"
+                            style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 15px; border-radius: 25px; font-weight: 800; border-color: white;"
+                            data-mdb-ripple-init>SinglePlayer</a>
+                        <a href="./multi.html" class="btn btn-primary"
+                            style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 15px; border-radius: 25px; font-weight: 800; border-color: white;"
+                            data-mdb-ripple-init>Multiplayer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

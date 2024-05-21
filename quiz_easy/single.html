@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Quiz</title>
+    <link rel=" shortcut icon " href="../images/logo.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body
+    style="flex-wrap: wrap; background-image: url('../images/field.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="info_box">
+        <div class="info-title" style="color: white;"><span>Sei pronto per la sfida?</span></div>
+        <div class="info-list">
+            <div class="info" style="color: white;">Ricordati solamente che avrai <span>10 secondi</span> per
+                rispondere.</div>
+        </div>
+        <div class="buttons">
+            <button id="back" class="quit"
+                style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 2.4vh; border-radius: 25px; font-weight: 800; border-color: white;"
+                data-mdb-ripple-init>Back</button>
+            <button class="quit"
+                style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 2.4vh; border-radius: 25px; font-weight: 800; border-color: white;"
+                data-mdb-ripple-init>Home</button>
+            <button class="restart"
+                style="font-size: 2.4vh; border-radius: 25px; font-weight: 800; border-color: #007bff;"
+                data-mdb-ripple-init>Play</button>
+        </div>
+    </div>
+
+    <div class="quiz_box">
+        <header>
+            <div class="title">Desafío Delantero</div>
+            <div class="timer">
+                <div class="time_left_txt">Tempo</div>
+                <div class="timer_sec">10</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+            </div>
+            <div class="option_list">
+            </div>
+        </section>
+        <footer>
+            <div class="total_que"></div>
+            <button class="next_btn"
+                style="font-size: 15px; border-radius: 25px; font-weight: 800; border-color: #007bff;"
+                data-mdb-ripple-init>Next</button>
+        </footer>
+    </div>
+
+    <div class="result_box" style="background-color: rgba(255, 255, 255, 0.25); 
+            backdrop-filter: blur(30px); 
+            border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.2);">
+        <div class="icon" style="justify-content: center;">
+            <img src="../images/logo1.jpg" alt="Logo" style="width: 150px; height: auto; border-radius: 25px;">
+        </div>
+        <div class="complete_text" style="color: white; font-size: 2rem; font-weight: 600;">Game Over!</div>
+        <div class="score_text" style="color: white"></div>
+        <div class="buttons">
+            <button class="restart"
+                style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 15px; border-radius: 25px; font-weight: 800; border-color: white;"
+                data-mdb-ripple-init>Riprova</button>
+            <button class="quit"
+                style="background-color: rgba(255, 255, 255, 0.8); color: #007bff; font-size: 15px; border-radius: 25px; font-weight: 800; border-color: white;"
+                data-mdb-ripple-init>Home</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=" shortcut icon " href="../images/logo.png" />
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="lb.css">
+    <link rel=" stylesheet " href=" ./bootstrap/css/index_styles.css " />
+    <link rel=" stylesheet " href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css">
+
+    <title>Leaderboard</title>
+</head>
+
+<body>
+    <div class="result_box" id="leaderboard-container" style="background-color: rgba(255, 255, 255, 0.25); 
+            flex-wrap: wrap;
+            display: flex;
+            backdrop-filter: blur(30px); 
+            border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 1s 1;">
+        <div style="font-size:6vh; text-align: center; padding: 10px; color:white; font-family: Blippo, fantasy;">
+            Leaderboard</div>
+        <div class="container" id="cont">
+            <!-- La leaderboard sarà generata qui -->
+        </div>
+        <a href="../index.html" class="btn btn-primary" data-difficulty="easy"
+            style="background-color: rgba(255, 255, 255, 0.8); color: #34408d; font-size: 20px; border-radius: 25px; font-weight: 800;"
+            data-mdb-ripple-init> Home
+        </a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="get_helper.js"></script>
+</body>
+
+</html>

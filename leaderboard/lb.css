@@ -1,0 +1,80 @@
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        /* Mantieni la posizione centrata mentre fai pulsare */
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        /* Mantieni la posizione centrata mentre fai pulsare */
+    }
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(83, 75, 75, 0.6), rgba(83, 75, 75, 0.6)), url('../images/uefa-champions-league.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    /* Ogni entry crescerà uniformemente per riempire il contenitore */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.50);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.entry:hover {
+    transform: scale(1.1);
+}
+
+.rank,
+.score {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.name {
+    flex-grow: 1;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .result_box {
+        font-size: 12px;
+        /* Adatta la dimensione del font per dispositivi piccoli */
+    }
+
+    .rank,
+    .score {
+        font-size: 14px;
+        /* Dimensione del font più grande per leggibilità */
+    }
+
+    .entry {
+        padding: 5px;
+        /* Riduci il padding per risparmiare spazio */
+    }
+}

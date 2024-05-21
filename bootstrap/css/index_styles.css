@@ -1,0 +1,227 @@
+/* Stile di base per intro */
+#intro {
+  padding-top: 90px;
+  /* Adegua questo valore in base all'altezza della tua navbar */
+}
+
+/* Adattamenti per dispositivi mobili */
+@media only screen and (max-width: 599px) {
+  #intro {
+    padding-top: 90px;
+    /* Potrebbe essere necessario un valore più piccolo se la navbar è meno alta su dispositivi mobili */
+  }
+}
+
+html {
+  height: 100%;
+  background-image: url('../../images/bg_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+body {
+  min-height: 100vh;
+  /* Assicura che il body occupi almeno l'altezza completa del viewport */
+  margin: 0;
+  /* Rimuove il margine predefinito */
+  padding: 0;
+  /* Rimuove il padding predefinito */
+  display: flex;
+  /* Abilita il display flex per consentire un migliore allineamento dei contenuti */
+  flex-direction: column;
+  /* Imposta la direzione dei flex items in colonna */
+  justify-content: space-between;
+  /* Distribuisce lo spazio tra gli elementi del contenitore */
+  background-image: url('../../images/bg_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Assicura che il main occupi tutta la larghezza */
+}
+
+
+
+/*fade effect*/
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.light.min.css" layer(demo.support);
+
+
+@keyframes slide-up {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.25);
+  /* Colore di sfondo con trasparenza */
+  backdrop-filter: blur(30px);
+  /* Sfocatura del filtro */
+  border-radius: 25px;
+  /* Bordi arrotondati per la card */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Bordo leggero per un effetto più glass */
+  opacity: 0;
+  /* Inizia con la card nascosta */
+  transition: opacity 0.3s ease;
+  /* Transizione morbida per l'opacità */
+}
+
+.card.visible {
+  opacity: 1;
+  /* Rendi la card completamente visibile quando è nel viewport */
+}
+
+.card.animating {
+  animation: slide-up 0.7s forwards;
+  /* Applica l'animazione quando la classe 'animating' è aggiunta */
+}
+
+.section_card:hover {
+  transform: scale(0.9);
+  /* Effetto di ingrandimento al passaggio del mouse */
+  opacity: 1;
+  /* Mantiene l'opacità a 1 anche al passaggio del mouse */
+}
+
+.section_hangcard:hover {
+  transform: scale(0.9);
+  /* Effetto di ingrandimento al passaggio del mouse */
+  opacity: 1;
+  /* Mantiene l'opacità a 1 anche al passaggio del mouse */
+}
+
+section {
+  padding: 25px 30px 20px 30px;
+  background: rgba(83, 75, 75, 0.6);
+  ;
+
+}
+
+@media (min-width: 992px) {
+  #intro {
+    margin-top: -58.59px;
+    height: 120vh !important;
+  }
+}
+
+.glass-navbar {
+  background-color: rgba(255, 255, 255, 0.25);
+  /* Colore di sfondo con trasparenza */
+  backdrop-filter: blur(30px);
+  /* Sfocatura del filtro */
+}
+
+.glass-navbar .navbar-brand span {
+  color: white;
+  /* Cambia il colore del testo se necessario */
+  font-weight: bold;
+  /* Opzionale: rendi il testo in grassetto */
+  font-size: 1.5rem;
+  /* Imposta la dimensione del font come preferisci */
+}
+
+main .main_3col {
+  display: flex;
+  flex-direction: row;
+  /* Organizza gli elementi figli in fila orizzontale */
+  justify-content: space-evenly;
+  /* Distribuisce lo spazio equamente tra gli elementi */
+  align-items: center;
+  /* Allinea gli elementi al centro verticalmente */
+  height: 100%;
+  /* Assicura che il contenitore occupi l'intera altezza del viewport */
+  margin-top: 10vh;
+  /* Rimuove i margini predefiniti */
+  padding: 10vh;
+  /* Rimuove il padding predefinito */
+  box-sizing: border-box;
+  /* Include padding e bordi nel calcolo delle dimensioni degli elementi */
+  color: white;
+  /* Imposta il colore del testo a bianco */
+  background-color: transparent;
+  /* Imposta il colore di sfondo a nero semi-trasparente */
+}
+
+
+/* Media queries per rendere il layout responsivo */
+@media (max-width: 768px) {
+
+  /* Adattamenti per tablet e dispositivi mobili */
+  .section_card,
+  .section_hangcard {
+    width: 90%;
+    /* Riduce la larghezza delle card */
+    margin: 10px 0;
+    /* Spazio tra le card */
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Adattamenti per schermi molto piccoli */
+  .section_card,
+  .section_hangcard {
+    width: 100%;
+    /* Massimizza la larghezza delle card */
+  }
+}
+
+section .section_card {
+  width: calc(100% / 3);
+  /* Assegna ad ogni sezione un terzo della larghezza del contenitore */
+  display: flex;
+  justify-content: center;
+  /* Centra il contenuto all'interno della sezione */
+  align-items: center;
+  /* Allinea verticalmente il contenuto al centro */
+  transform: scale(0.8);
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  /* Aggiunge transizioni morbide */
+}
+
+section .section_hangcard {
+  width: calc(100%);
+  /* Assegna ad ogni sezione un terzo della larghezza del contenitore */
+  display: flex;
+  justify-content: center;
+  /* Centra il contenuto all'interno della sezione */
+  align-items: center;
+  /* Allinea verticalmente il contenuto al centro */
+  transform: scale(0.8);
+  transform-origin: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  /* Aggiunge transizioni morbide */
+}
+
+.text {
+  font-size: clamp(20px, 4vw, 50px);
+}
+
+.index_footer {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  border: 0;
+  height: 0%
+}

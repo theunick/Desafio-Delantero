@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(83, 75, 75, 0.6), rgba(83, 75, 75, 0.6)), url('../images/login_back.webp');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container {
+  border-radius: 10px;
+  position: absolute;
+  width: 768px;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+
+form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group input {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 15px;
+  margin: 8px 0;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.input-group input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.input-group input::placeholder {
+  color: #fff;
+}
+
+.input-group a {
+  text-decoration: none;
+  margin: 8px 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+button {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 15px 45px;
+  margin-top: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.sign-in-wrapper {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.sign-up-wrapper {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.overlay-left {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  font-weight: 600;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.overlay-right {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  font-weight: 600;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(30px);
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.container.active .sign-in-wrapper {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.container.active .sign-up-wrapper {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 9;
+}
+
+.container.active .overlay-right {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.container.active .overlay-left {
+  transform: translateX(-100%);
+  opacity: 1;
+  z-index: 9;
+}
+
+form h1 {
+  font-weight: 600;
+  color: #fff;
+
+}
+
+.overlay-left p,
+.overlay-right p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin: 20px 0;
+}
