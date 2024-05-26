@@ -1,4 +1,4 @@
-# Progetto Web: Descrizione delle Cartelle e dei File
+# Desafio Delantero - Guida delle cartelle e dei file nel codice sorgente
 
 Il progetto è suddiviso in 6 cartelle principali e 3 file separati.
 
