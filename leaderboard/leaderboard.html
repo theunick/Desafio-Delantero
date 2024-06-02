@@ -18,11 +18,15 @@
     <div class="result_box" id="leaderboard-container" style="background-color: rgba(255, 255, 255, 0.25); 
             flex-wrap: wrap;
             display: flex;
+            width: auto;
+            flex-direction:initial;
             backdrop-filter: blur(30px); 
             border-radius: 25px; 
             border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow-y: auto;
+            box-sizing: border-box;
             animation: pulse 1s 1;">
-        <div style="font-size:6vh; text-align: center; padding: 10px; color:white; font-family: Blippo, fantasy;">
+        <div style="font-size:400%; text-align: center; padding: 10px; color:white; font-family: Blippo, fantasy;">
             Leaderboard</div>
         <div class="container" id="cont">
             <!-- La leaderboard sarà generata qui -->

@@ -30,6 +30,7 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: stretch;
+    padding: 20px;
 }
 
 .entry {
