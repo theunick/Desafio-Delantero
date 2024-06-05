@@ -119,32 +119,31 @@ function optionSelected(answerElement) {
     clearInterval(counter);
     clearInterval(counterLine);
 
-    let userAns = $(answerElement).text(); // Utilizzo di jQuery per ottenere il testo
+    let userAns = $(answerElement).text();
     let correcAns = questions[que_count].answer;
-    const allOptions = $('.option').length; // Utilizzo di jQuery per contare gli elementi
+    const allOptions = $('.option').length;
 
     if (userAns === correcAns) {
         userScore += 1;
-        $(answerElement).addClass("correct").append(okIconTag); // Aggiunge classe e icona con jQuery
+        $(answerElement).addClass("correct").append(okIconTag);
         console.log("Correct Answer");
         console.log("Your correct answers = " + userScore);
     } else {
-        $(answerElement).addClass("incorrect").append(errorIconTag); // Aggiunge classe e icona con jQuery
+        $(answerElement).addClass("incorrect").append(errorIconTag);
         console.log("Wrong Answer");
 
-        $('.option').each(function () { // Ciclo su ogni opzione con jQuery
+        $('.option').each(function () { 
             if ($(this).text() === correcAns) {
-                $(this).addClass("correct").append(okIconTag); // Aggiunge classe e icona con jQuery
+                $(this).addClass("correct").append(okIconTag); 
                 console.log("Auto selected correct answer.");
             }
         });
     }
 
-    $('.option').addClass("disabled"); // Disabilita tutte le opzioni
-    $('.next_btn').addClass("show"); // Mostra il pulsante successivo
+    $('.option').addClass("disabled"); 
+    $('.next_btn').addClass("show"); 
 }
 
-// Funzione per mostrare il risultato del quiz
 function showResult() {
     $('.info_box').removeClass("activeInfo");
     $('.quiz_box').removeClass("activeQuiz");
@@ -172,11 +171,11 @@ function showResult() {
     }
 }
 
-// Funzione per iniziare il timer
+
 function startTimer(time) {
     $('.timer_sec').text(timerTime);
     counter = setInterval(function () {
-        $('.timer_sec').text(time); // jQuery per aggiornare il testo
+        $('.timer_sec').text(time); 
         time--;
         if (time <= 9) {
             $('.timer_sec').text("0" + time); // Aggiunge uno zero davanti al numero
@@ -185,7 +184,7 @@ function startTimer(time) {
         if (time == 0) {
             clearInterval(counter);
             $('#time_left_txt').text("Tempo terminato");
-            $('.option').each(function () { // Cicla su tutti gli elementi con classe 'option'
+            $('.option').each(function () { 
                 if ($(this).text() === questions[que_count].answer) {
                     $(this).addClass("correct").append(okIconTag);
                 }
@@ -196,19 +195,17 @@ function startTimer(time) {
     }, 1000);
 }
 
-// Funzione per iniziare la linea del timer
 function startTimerLine(time) {
     counterLine = setInterval(function () {
         time += 0.025;
-        $('.time_line').css('width', time * 4 + "%"); // Modifica il CSS usando jQuery
+        $('.time_line').css('width', time * 4 + "%"); 
         if (time > 25) {
             clearInterval(counterLine);
         }
     }, 10);
 }
 
-// Funzione per mostrare il contatore delle domande
 function queCounter(index) {
     let totalQueCountTag = `<span><p>${index}</p> of <p>${questions.length}</p></span>`;
-    $('.total_que').html(totalQueCountTag); // Imposta il contenuto HTML di '.total_que' usando jQuery
+    $('.total_que').html(totalQueCountTag); 
 }
