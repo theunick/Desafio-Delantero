@@ -44,10 +44,12 @@ Contiene i file relativi al login e alla registrazione degli utenti:
 ### 6. Quiz_easy
 Contiene i file relativi al quiz:
 - **db_connect.php**: Per la connessione al database. Viene richiamato in tutti gli altri file PHP.
+- **difficulty.js**: Per la gestione delle difficoltà dei quiz
 - **get_questions.php**: Richiede le domande al database e le invia ai file JS che le richiedono.
 - **submit_score.php**: Registra nel database i punteggi degli utenti.
 - **quiz_menu.html**: Costituisce la pagina di menu dalla quale si sceglie la modalità di gioco.
 - **single.html**: Costituisce le pagine relative alla modalità singleplayer.
 - **multi.html**: Costituisce le pagine relative alla modalità multiplayer.
 - **script.js**: Collega `single.html`, `get_questions.php` e `submit_score.php` e gestisce tutte le meccaniche relative al quiz in singleplayer.
-- **multi.js**: Collega `multi.html`, `get_questions.php` e `submit_score.php` e gestisce tutte le meccaniche relative al quiz in multiplayer.
+- **script_single.js**: Collega `single.html`, `get_questions.php` e `submit_score.php` e gestisce tutte le meccaniche relative al quiz in singleplayer.
+- **script_multi.js**: Collega `multi.html`, `get_questions.php` e `submit_score.php` e gestisce tutte le meccaniche relative al quiz in multiplayer.
