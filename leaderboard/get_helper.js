@@ -38,7 +38,6 @@ $(document).ready(function () {
                 rankDisplay = '<span style="font-size: 20px;">🏅</span>';
             }
 
-            // Crea un elemento HTML per la voce della leaderboard
             const leaderboardRow = `
             <div class="entry" style="font-size: 3vh;">
                 <span class="rank">${rankDisplay}</span>
@@ -46,7 +45,6 @@ $(document).ready(function () {
                 <span class="score">${score}</span>
             </div>
             `;
-            // Aggiunge l'elemento HTML al contenitore della leaderboard
             leaderboardContainer.innerHTML += leaderboardRow;
         });
     }
