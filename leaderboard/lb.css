@@ -39,7 +39,6 @@ body {
     align-items: center;
     justify-content: space-around;
     flex: 1;
-    /* Ogni entry crescerà uniformemente per riempire il contenitore */
     margin: 10px 0;
     padding: 10px;
     border-radius: 25px;

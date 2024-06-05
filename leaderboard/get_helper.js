@@ -40,9 +40,9 @@ $(document).ready(function () {
 
             // Crea un elemento HTML per la voce della leaderboard
             const leaderboardRow = `
-            <div class="entry">
+            <div class="entry" style="font-size: 3vh;">
                 <span class="rank">${rankDisplay}</span>
-                <span class="name">${username}</span>
+                <span class="name">${username} </span>
                 <span class="score">${score}</span>
             </div>
             `;
